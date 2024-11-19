@@ -49,7 +49,10 @@ class AngleInterpolationAgent(PIDAgent):
         names, times, keys = keyframes
 
         curr_time = perception.time - self.start
-
+        stopTime = max([times[i][-1] for i in range(len(keyframes[0]))], default=-1.0)
+        if curr_time > stopTime:
+            self.keyframes = ([], [], [])
+            return target_joints
         for i in range(len(names)):
 
             if names[i] in self.joint_names:
