@@ -83,7 +83,7 @@ class InverseKinematicsAgent(ForwardKinematicsAgent):
         joint_angles = self.inverse_kinematics(effector_name, transform)
         for i in range(len(joint_angles)):
             self.keyframes[0].append(self.chains[effector_name][i])
-            self.keyframes[1].append([5, 10])
+            self.keyframes[1].append([1, 1.5])
             self.keyframes[2].append([[joint_angles[i], [3, 0, 0], [3, 0, 0]],
                                     [0, [3, 0, 0], [3, 0, 0]]])
 
